@@ -34,4 +34,5 @@ class Main extends PluginBase implements Listener{
       $test = $item->getNamedTag()->test;//"hey"
       $p->sendMessage('NBT TAGS WORK!!!!!!!!!');
     }
+  }
 }
