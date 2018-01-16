@@ -44,7 +44,7 @@ class Main extends PluginBase implements Listener{
   public function onJump(PlayerJumpEvent $ev){
     $player = $ev->getPlayer();
     $item = $player->getInventory()->getItemInHand();
-    $nbt = $item->getNamedTag() ?? new CompoundTag("", []);
+    $nbt = $item->getNamedTag();
     $nbt->test2 = new StringTag("test2", "hey2");
     $item->setNamedTag($nbt);
     $player->getInventory()->setItemInHand($item);
