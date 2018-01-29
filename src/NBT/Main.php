@@ -9,7 +9,7 @@ use pocketmine\plugin\PluginBase;
 
 use pocketmine\Player;
 
-use pocketmine\event\player\{PlayerJoinEvent, PlayerInteractEvent, PlayerJumpEvent};
+use pocketmine\event\player\{PlayerJoinEvent, PlayerInteractEvent};
 
 use pocketmine\nbt\tag\{StringTag, CompoundTag};
 
@@ -33,20 +33,6 @@ class Main extends PluginBase implements Listener{
     if(isset($item->getNamedTag()->test)) {
       $test = $item->getNamedTag()->test;//"hey"
       $p->sendMessage('NBT TAGS WORK!!!!!!!!!');
-    } else {
-      if(isset($item->getNamedTag()->test) && isset($item->getNamedTag()->test2)){
-        $test = $item->getNamedTag()->test;//"hey2"
-        $p->sendMessage('NBT TAGS WORK AGAIN!!!!!!!!!');
-      }
     }
-  }
-  
-  public function onJump(PlayerJumpEvent $ev){
-    $player = $ev->getPlayer();
-    $item = $player->getInventory()->getItemInHand();
-    $nbt = $item->getNamedTag();
-    $nbt->test2 = new StringTag("test2", "hey2");
-    $item->setNamedTag($nbt);
-    $player->getInventory()->setItemInHand($item);
   }
 }
